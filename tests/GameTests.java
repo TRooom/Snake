@@ -101,10 +101,27 @@ public class GameTests
     @Test
     public void testAppleConflict()
     {
-/*        Queue<Point> path = new ArrayDeque<>();
-        Snake snake = new Snake(0, 0, 1, path, true, 0, Direction.Right);
-        GameObject apple = new GameObject(1, 1, GameObjectType.Apple);
+        Queue<Point> path = new ArrayDeque<>();
+        Snake snake = new Snake(0, 0, 1, path, true, 0, Direction.Up);
+        GameObject apple = new GameObject(0, 1, GameObjectType.Apple);
         GameState initial = new GameState(snake, new Point(2, 2), new ArrayList<GameObject>());
-        GameState updated = Game.update(initial.addObject)*/
+        GameState updated = Game.update(initial.addObject(apple));
+        assertEquals(updated.getSnake().getLength(),2);
+        assertEquals(updated.getSnake().getX(),0);
+        assertEquals(updated.getSnake().getY(),1);
+        assertEquals(updated.getSnake().getPath().element().getX(),0);
+        assertEquals(updated.getSnake().getPath().element().getY(),0);
+    }
+
+    @Test
+    public void testPill()
+    {
+
+    }
+
+    @Test
+    public void testStrawberry()
+    {
+
     }
 }

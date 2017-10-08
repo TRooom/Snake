@@ -24,7 +24,7 @@ public class Snake extends Point
 
     public int getLength()
     {
-        return path.size();
+        return path.size() + 1;
     }
 
     public Snake setLocation(int x, int y)

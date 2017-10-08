@@ -37,15 +37,27 @@ public class Game
             boolean willTouch = newSnake.getX() == go.getX() && go.getY() == newSnake.getY();
             if (willTouch)
             {
+                GameObject go2;
                 switch (go.getGameObjectType())
                 {
                     case Wall:
+                        return gameState.setSnake(newSnake.setAlive(false));
                     case Stone:
                         return gameState.setSnake(newSnake.setAlive(false));
                     case Apple:
+                         go2 = new GameObject(0, 0, go.getGameObjectType());
+                        return gameState
+                                .setSnake(snake.addScore(10).increase(go))
+                                .removeObject(i)
+                                .addObject(go2);
                     case Strawberry:
+                         go2 = new GameObject(0, 0, go.getGameObjectType());
+                        return gameState
+                                .setSnake(snake.addScore(10).increase(go))
+                                .removeObject(i)
+                                .addObject(go2);
                     case Pill:
-                        GameObject go2 = new GameObject(0, 0, go.getGameObjectType());
+                         go2 = new GameObject(0, 0, go.getGameObjectType());
                         return gameState
                                 .setSnake(snake.addScore(10).increase(go))
                                 .removeObject(i)
